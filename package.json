@@ -1,0 +1,21 @@
+{
+  "name": "trezor-connect-flow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "gen-flow": "flowgen --no-inexact --add-flow-header -o index.js.flow index.d.ts",
+    "build": "npm run tsc && npm run gen-flow"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@trezor/connect-web": "^9.0.7"
+  },
+  "devDependencies": {
+    "flowgen": "^1.21.0",
+    "typescript": "^5.0.3"
+  }
+}
