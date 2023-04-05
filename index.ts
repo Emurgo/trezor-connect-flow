@@ -258,7 +258,7 @@ export const CardanoTxAuxiliaryDataSupplementType: {
 export type CardanoAuxiliaryDataSupplement = {
     type: CardanoTxAuxiliaryDataSupplementType;
     auxiliaryDataHash: string;
-    cVoteRegistrationSignature?: string;
+    governanceSignature?: string;
 }
 
 export type CardanoSignedTxData = {

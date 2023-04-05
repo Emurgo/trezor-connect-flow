@@ -239,7 +239,7 @@ declare export var CardanoTxAuxiliaryDataSupplementType: {
 export type CardanoAuxiliaryDataSupplement = {|
   type: CardanoTxAuxiliaryDataSupplementTypeType,
   auxiliaryDataHash: string,
-  cVoteRegistrationSignature?: string,
+  governanceSignature?: string,
 |};
 export type CardanoSignedTxData = {|
   hash: string,
