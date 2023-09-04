@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@trezor/connect-web": "^9.0.7"
+    "@trezor/connect-web": "9.1.1"
   },
   "devDependencies": {
     "flowgen": "^1.21.0",
