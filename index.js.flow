@@ -188,7 +188,7 @@ export type CardanoWithdrawal = {|
   keyHash?: string,
 |};
 export type CardanoGovernanceRegistrationDelegation = {|
-  votingPublicKey: string,
+  votePublicKey: string,
   weight: number,
 |};
 declare type CardanoGovernanceRegistrationFormatType = 0 | 1;
@@ -196,9 +196,9 @@ declare export var CardanoGovernanceRegistrationFormat: {
   [key: string]: CardanoGovernanceRegistrationFormatType,
 };
 export type CardanoGovernanceRegistrationParameters = {|
-  votingPublicKey?: string,
+  votePublicKey?: string,
   stakingPath: string | number[],
-  rewardAddressParameters: CardanoAddressParameters,
+  paymentAddressParameters: CardanoAddressParameters,
   nonce: string,
   format?: CardanoGovernanceRegistrationFormatType,
   delegations?: CardanoGovernanceRegistrationDelegation[],
@@ -206,7 +206,7 @@ export type CardanoGovernanceRegistrationParameters = {|
 |};
 export type CardanoAuxiliaryData = {|
   hash?: string,
-  governanceRegistrationParameters?: CardanoGovernanceRegistrationParameters,
+  cVoteRegistrationParameters?: CardanoGovernanceRegistrationParameters,
 |};
 export type CardanoMint = CardanoAssetGroup[];
 export type CardanoCollateralInput = {|

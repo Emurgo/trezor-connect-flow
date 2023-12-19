@@ -200,7 +200,7 @@ export type CardanoWithdrawal = {
   keyHash?: string;
 }
 export type CardanoGovernanceRegistrationDelegation = {
-  votingPublicKey: string;
+  votePublicKey: string;
   weight: number;
 }
 type CardanoGovernanceRegistrationFormat = 0 | 1;
@@ -211,9 +211,9 @@ export const CardanoGovernanceRegistrationFormat: {
   CIP36: 1
 } as const;
 export type CardanoGovernanceRegistrationParameters = {
-  votingPublicKey?: string;
+  votePublicKey?: string;
   stakingPath: string | number[];
-  rewardAddressParameters: CardanoAddressParameters;
+  paymentAddressParameters: CardanoAddressParameters;
   nonce: string;
   format?: CardanoGovernanceRegistrationFormat;
   delegations?: CardanoGovernanceRegistrationDelegation[];
@@ -221,7 +221,7 @@ export type CardanoGovernanceRegistrationParameters = {
 }
 export type CardanoAuxiliaryData = {
   hash?: string;
-  governanceRegistrationParameters?: CardanoGovernanceRegistrationParameters;
+  cVoteRegistrationParameters?: CardanoGovernanceRegistrationParameters;
 }
 export type CardanoMint = CardanoAssetGroup[];
 export type CardanoCollateralInput = {
