@@ -171,7 +171,7 @@ export const CardanoDRepType = {
 export type CardanoDRep = {
   type: ValueOf<typeof CardanoDRepType>,
   keyHash?: string,
-  scriptHash: string,
+  scriptHash?: string,
 };
 export type CardanoPoolParameters = {
   poolId: string;
