@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CardanoTxAuxiliaryDataSupplementType = exports.CardanoTxWitnessType = exports.CardanoGovernanceRegistrationFormat = exports.CardanoPoolRelayType = exports.CardanoCertificateType = exports.CardanoTxOutputSerializationFormat = exports.CardanoDerivationType = exports.CardanoAddressType = exports.CardanoTxSigningMode = exports.DEVICE_EVENT = exports.UI_EVENT = void 0;
+exports.CardanoTxAuxiliaryDataSupplementType = exports.CardanoTxWitnessType = exports.CardanoGovernanceRegistrationFormat = exports.CardanoPoolRelayType = exports.CardanoDRepType = exports.CardanoCertificateType = exports.CardanoTxOutputSerializationFormat = exports.CardanoDerivationType = exports.CardanoAddressType = exports.CardanoTxSigningMode = exports.DEVICE_EVENT = exports.UI_EVENT = void 0;
 const connect_web_1 = __importDefault(require("@trezor/connect-web"));
 var connect_web_2 = require("@trezor/connect-web");
 Object.defineProperty(exports, "UI_EVENT", { enumerable: true, get: function () { return connect_web_2.UI_EVENT; } });
@@ -40,7 +40,16 @@ exports.CardanoCertificateType = {
     STAKE_REGISTRATION: 0,
     STAKE_DEREGISTRATION: 1,
     STAKE_DELEGATION: 2,
-    STAKE_POOL_REGISTRATION: 3
+    STAKE_POOL_REGISTRATION: 3,
+    STAKE_REGISTRATION_CONWAY: 7,
+    STAKE_DEREGISTRATION_CONWAY: 8,
+    VOTE_DELEGATION: 9,
+};
+exports.CardanoDRepType = {
+    KEY_HASH: 0,
+    SCRIPT_HASH: 1,
+    ABSTAIN: 2,
+    NO_CONFIDENCE: 3,
 };
 exports.CardanoPoolRelayType = {
     SINGLE_HOST_IP: 0,

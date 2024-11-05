@@ -6,6 +6,7 @@
  */
 
 declare export { UI_EVENT, DEVICE_EVENT } from "@trezor/connect-web";
+declare type ValueOf<T> = $ElementType<T, $Keys<T>>;
 export type Manifest = {|
   appUrl: string,
   email: string,
@@ -135,17 +136,35 @@ export type CardanoOutput =
       inlineDatum?: string,
       referenceScript?: string,
     |};
-declare type CardanoCertificateTypeType = 0 | 1 | 2 | 3;
-declare export var CardanoCertificateType: {
-  [key: string]: CardanoCertificateTypeType,
-};
+declare export var CardanoCertificateType: {|
+  +STAKE_REGISTRATION: 0,
+  +STAKE_DEREGISTRATION: 1,
+  +STAKE_DELEGATION: 2,
+  +STAKE_POOL_REGISTRATION: 3,
+  +STAKE_REGISTRATION_CONWAY: 7,
+  +STAKE_DEREGISTRATION_CONWAY: 8,
+  +VOTE_DELEGATION: 9,
+|};
 export type CardanoCertificate = {|
-  type: CardanoCertificateTypeType,
+  type: ValueOf<typeof CardanoCertificateType>,
   path?: string | number[],
   pool?: string,
   poolParameters?: CardanoPoolParameters,
   scriptHash?: string,
   keyHash?: string,
+  deposit?: string,
+  dRep?: CardanoDRep,
+|};
+declare export var CardanoDRepType: {|
+  +KEY_HASH: 0,
+  +SCRIPT_HASH: 1,
+  +ABSTAIN: 2,
+  +NO_CONFIDENCE: 3,
+|};
+export type CardanoDRep = {|
+  type: ValueOf<typeof CardanoDRepType>,
+  keyHash?: string,
+  scriptHash?: string,
 |};
 export type CardanoPoolParameters = {|
   poolId: string,

@@ -2,6 +2,8 @@ import OriginalTrezorConnect  from '@trezor/connect-web';
 import { PROTO } from '@trezor/connect/lib/constants/';
 export { UI_EVENT, DEVICE_EVENT } from '@trezor/connect-web';
 
+type ValueOf<T> = T[keyof T];
+
 export type Manifest = {
   appUrl: string;
   email: string;
@@ -141,21 +143,36 @@ export type CardanoOutput = {
   referenceScript?: string,
 };
 
-type CardanoCertificateType = 0 | 1 | 2 | 3;
-export const CardanoCertificateType: { [key: string]: CardanoCertificateType } = {
+export const CardanoCertificateType = {
   STAKE_REGISTRATION: 0,
   STAKE_DEREGISTRATION: 1,
   STAKE_DELEGATION: 2,
-  STAKE_POOL_REGISTRATION: 3
+  STAKE_POOL_REGISTRATION: 3,
+  STAKE_REGISTRATION_CONWAY: 7,
+  STAKE_DEREGISTRATION_CONWAY: 8,
+  VOTE_DELEGATION: 9,
 } as const;
 export type CardanoCertificate = {
-  type: CardanoCertificateType;
+  type: ValueOf<typeof CardanoCertificateType>;
   path?: string | number[];
   pool?: string;
   poolParameters?: CardanoPoolParameters;
   scriptHash?: string;
   keyHash?: string;
-}
+  deposit?: string;
+  dRep?: CardanoDRep;
+};
+export const CardanoDRepType = {
+  KEY_HASH: 0,
+  SCRIPT_HASH: 1,
+  ABSTAIN: 2,
+  NO_CONFIDENCE: 3,
+} as const;
+export type CardanoDRep = {
+  type: ValueOf<typeof CardanoDRepType>,
+  keyHash?: string,
+  scriptHash?: string,
+};
 export type CardanoPoolParameters = {
   poolId: string;
   vrfKeyHash: string;
