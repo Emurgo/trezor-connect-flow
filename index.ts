@@ -68,6 +68,7 @@ export type CardanoSignTransaction = {
   signingMode: CardanoTxSigningMode;
   derivationType?: CardanoDerivationType;
   includeNetworkId?: boolean;
+  tagCborSets?: boolean;
 }
 
 export type CardanoInput = {
