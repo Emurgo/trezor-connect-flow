@@ -5,6 +5,7 @@ export { UI_EVENT, DEVICE_EVENT } from '@trezor/connect-web';
 type ValueOf<T> = T[keyof T];
 
 export type Manifest = {
+  appName: string;
   appUrl: string;
   email: string;
 };
@@ -287,9 +288,10 @@ export type CardanoSignedTxData = {
 
 export type CommonParams = {
     device?: {
-        path?: string;
-        state?: string;
-        instance?: number;
+      // not passing the `path` property because it's a branded string type
+      //path: string;
+      state?: string;
+      instance?: number;
     };
     useEmptyPassphrase?: boolean;
     useEventListener?: boolean;
