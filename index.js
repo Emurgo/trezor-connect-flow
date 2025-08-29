@@ -93,6 +93,27 @@ class TrezorConnect {
     static cardanoGetAddress(params) {
         return connect_web_1.default.cardanoGetAddress(params);
     }
+    static cardanoSignMessage(params) {
+        //return OriginalTrezorConnect.cardanoSignMessage(params);
+        return Promise.resolve({
+            success: true,
+            payload: {
+                payload: params.payload,
+                signature: 'cf5d6d84d66f108422237c141e8b999cc37b007037aa97cec12b2d650a311c7d948d1b7286c8c7ebdd3951338322a25cf124ef2771d5225dbaea6dcbc8cdf006',
+                headers: {
+                    protected: {
+                        1: -8,
+                        address: 'e148fb59a3d1ad0e97b2cdf0e648ca73b3e3cfb20cb854fa00d31ce68b',
+                    },
+                    unprotected: {
+                        version: 0,
+                        hashed: false,
+                    },
+                },
+                pubKey: '5892ab79044968abc0cc112b867cd2fafa2d735219801980f717ac279eff6677',
+            },
+        });
+    }
 }
 exports.default = TrezorConnect;
 ;

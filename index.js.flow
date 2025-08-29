@@ -303,6 +303,30 @@ export type CardanoAddress = {|
   serializedStakingPath: string,
   address: string,
 |};
+export type CardanoSignMessage = {|
+  path: string | number[],
+  payload: string,
+  preferHexDisplay: boolean,
+  networkId?: number,
+  protocolMagic?: number,
+  addressParameters?: CardanoAddressParameters,
+  derivationType: CardanoDerivationTypeType,
+|};
+export type CardanoSignMessageResponse = {|
+  payload: string,
+  signature: string,
+  headers: {|
+    protected: {|
+      1: -8,
+      address: string,
+    |},
+    unprotected: {|
+      version: number,
+      hashed: boolean,
+    |},
+  |},
+  pubKey: string,
+|};
 declare export default class TrezorConnect {
   static init(x: {|
     manifest: Manifest,
@@ -321,4 +345,7 @@ declare export default class TrezorConnect {
   static cardanoGetAddress(
     params: Params<CardanoGetAddress>
   ): Response<CardanoAddress>;
+  static cardanoSignMessage(
+    params: Params<CardanoSignMessage>
+  ): Response<CardanoSignMessageResponse>;
 }
